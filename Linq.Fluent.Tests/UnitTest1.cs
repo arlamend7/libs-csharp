@@ -1,12 +1,14 @@
 using FluentAssertions;
+using Linq.Fluent.Expressions.Conditions;
+using Linq.Fluent.Expressions.IExpressionBuilder;
+using Linq.Fluent.Expressions.Starters;
+using Linq.Fluent.Funcs.Conditions;
+using Linq.Fluent.Funcs.FuncBuilders;
+using Linq.Fluent.Funcs.Starters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
-using Linq.Fluent.Expressions.Starters;
-using Linq.Fluent.Funcs.Starters;
-using Linq.Fluent.Expressions.Conditions;
-using Linq.Fluent.Funcs.Conditions;
-using System;
 
 namespace Linq.Fluent.Tests
 {
@@ -30,7 +32,7 @@ namespace Linq.Fluent.Tests
 
             firstComplexClass = new ComplexClass() { listInt = new List<int>(), DateTime = null, Int = null, Long = null, listComplex = new List<ComplexClass>(), String = null  };
             secondComplexClass = new ComplexClass() { listInt = new List<int>() { 1 }, DateTime = DateTime.Now, Int = 1, Long = 1, String = "test", listComplex = new List<ComplexClass>() { firstComplexClass} };
-            listComplex = new List<ComplexClass>() { null,firstComplexClass, secondComplexClass };
+            listComplex = new List<ComplexClass>() { null, firstComplexClass, secondComplexClass };
         }
         public class ComplexClass
         {
@@ -45,23 +47,40 @@ namespace Linq.Fluent.Tests
         [Fact]
         public void WhereParam()
         {
-            listInt.WhereParam(x => x).IsEqual(1).Should().HaveCount(1);
+            listInt.WhereParam(x => x).Should().BeOfType<FuncBuilder<int?, int?>>();
 
-            listInt.AsQueryable().WhereParam(x => x).IsEqual(1).Should().HaveCount(1);
+            listInt.AsQueryable().WhereParam(x => x).Should().BeOfType<ExpressionBuilder<int?,int?>>();
+            
+            listComplex.WhereParam(x => x.DateTime).Should().BeOfType<FuncBuilder<ComplexClass, DateTime?>>();
+
+            listComplex.AsQueryable().WhereParam(x => x.DateTime).Should().BeOfType<ExpressionBuilder<ComplexClass, DateTime?>>();
         }
         [Fact]
         public void WhereQuery()
         {
-            listInt.WhereQuery().IsEqual(1).Count().Should().Be(1);
+            listInt.WhereQuery().Should().BeOfType<FuncBuilder<int?, int?>>();
 
-            listInt.AsQueryable().WhereQuery().IsEqual(1).Count().Should().Be(1);
+            listInt.AsQueryable().WhereQuery().Should().BeOfType<ExpressionBuilder<int?, int?>>();
+
+            listComplex.WhereQuery().Should().BeOfType<FuncBuilder<ComplexClass, ComplexClass>>();
+        }
+
+        [Fact]
+        public void IsNotNull()
+        {
+            listComplex.WhereQuery().IsNotNull().Should().HaveCount(2);
+            listComplex.AsQueryable()
+                       .WhereQuery().IsNotNull().Should().HaveCount(2);
         }
         [Fact]
         public void Contains()
         {
-            listComplex.WhereParam(x => x.listInt).Contains(1).Should().HaveCount(1);
-            listComplex.AsQueryable().WhereQuery().IsNotNull()
-                                     .WhereParam(x => x.listInt).Contains(1).Should().HaveCount(1);
+            listComplex.WhereQuery().IsNotNull()
+                       .WhereParam(x => x.listInt).Contains(1).Should().HaveCount(1);
+
+            listComplex.AsQueryable()
+                       .WhereQuery().IsNotNull()
+                       .WhereParam(x => x.listInt).Contains(1).Should().HaveCount(1);
         }
     }
 
