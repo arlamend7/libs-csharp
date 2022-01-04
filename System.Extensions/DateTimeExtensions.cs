@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Linq.Fluent.Entidades
 {
-    public static class DateTimeExtension
+    public static class DateTimeExtensions
     {
         /// <summary>
         ///     Retorna os dias decorridos entre a data de inicio e a data de fim

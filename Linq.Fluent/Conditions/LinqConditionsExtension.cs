@@ -19,7 +19,7 @@ namespace Linq.Fluent.Expressions.Conditions
         {
             return fluentLinq.Condition(x => x.Count() == qt);
         }
-        public static TResult Have<T, TResult>(this ILinqFluentExpressionBuilder<IList<T>, TResult> fluentLinq, int qt)
+        public static TResult Have<T, TResult>(this ILinqFluentExpressionBuilder<List<T>, TResult> fluentLinq, int qt)
         {
             return fluentLinq.Condition(x => x.Count() == qt);
         }
@@ -33,7 +33,7 @@ namespace Linq.Fluent.Expressions.Conditions
         {
             return fluentLinq.Condition(x => x.Count() < qt);
         }
-        public static TResult HaveLessThen<T, TResult>(this ILinqFluentExpressionBuilder<IList<T>, TResult> fluentLinq, int qt)
+        public static TResult HaveLessThen<T, TResult>(this ILinqFluentExpressionBuilder<List<T>, TResult> fluentLinq, int qt)
         {
             return fluentLinq.Condition(x => x.Count() < qt);
         }
@@ -47,7 +47,7 @@ namespace Linq.Fluent.Expressions.Conditions
         {
             return fluentLinq.Condition(x => x.Count() > qt);
         }
-        public static TResult HaveMoreThen<T, TResult>(this ILinqFluentExpressionBuilder<IList<T>, TResult> fluentLinq, int qt)
+        public static TResult HaveMoreThen<T, TResult>(this ILinqFluentExpressionBuilder<List<T>, TResult> fluentLinq, int qt)
         {
             return fluentLinq.Condition(x => x.Count() > qt);
         }
@@ -74,6 +74,14 @@ namespace Linq.Fluent.Expressions.Conditions
         public static TResult In<TResult>(this ILinqFluentExpressionBuilder<DateTime?, TResult> fluentLinq, params DateTime?[] list)
         {
             return fluentLinq.Condition(x => list.Contains(x));
+        }
+        public static TResult In<TResult>(this ILinqFluentExpressionBuilder<int?, TResult> fluentLinq, params int[] list)
+        {
+            return fluentLinq.Condition(x => x != null && list.Contains(x.Value));
+        }
+        public static TResult In<TResult>(this ILinqFluentExpressionBuilder<long?, TResult> fluentLinq, params long[] list)
+        {
+            return fluentLinq.Condition(x => x != null && list.Contains(x.Value));
         }
         #endregion In
         #region IsBetween
@@ -185,7 +193,7 @@ namespace Linq.Fluent.Expressions.Conditions
         {
             return fluentLinq.Condition(x => x == null || x.Any());
         }
-        public static TResult IsNullOrEmpty<T, TResult>(this ILinqFluentExpressionBuilder<IList<T>, TResult> fluentLinq)
+        public static TResult IsNullOrEmpty<T, TResult>(this ILinqFluentExpressionBuilder<List<T>, TResult> fluentLinq)
         {
             return fluentLinq.Condition(x => x == null || x.Any());
         }
@@ -231,15 +239,13 @@ namespace Linq.Fluent.Expressions.Conditions
         }
         public static TResult Like<T, TResult, TValue>(this ILinqFluentExpressionBuilder<T, TResult> fluentLinq, TValue value)
             where T : struct
-            where TValue : struct
         {
             return fluentLinq.Condition(x => x.ToString().Contains(value.ToString()));
         }
         public static TResult Like<T, TResult, TValue>(this ILinqFluentExpressionBuilder<Nullable<T>, TResult> fluentLinq, TValue value)
            where T : struct
-           where TValue : struct
         {
-            return fluentLinq.Condition(x => x.Value.ToString().Contains(value.ToString()));
+            return fluentLinq.Condition(x => x != null && x.Value.ToString().Contains(value.ToString()));
         }
         #endregion Like
         public static TResult IsNotNull<T, TResult>(this ILinqFluentExpressionBuilder<T, TResult> expression)

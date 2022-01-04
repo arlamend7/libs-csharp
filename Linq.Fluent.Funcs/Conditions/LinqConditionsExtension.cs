@@ -19,7 +19,7 @@ namespace Linq.Fluent.Funcs.Conditions
         {
             return fluentLinq.Condition(x => x.Count() == qt);
         }
-        public static TResult Have<T, TResult>(this ILinqFluentFuncBuilder<IList<T>, TResult> fluentLinq, int qt)
+        public static TResult Have<T, TResult>(this ILinqFluentFuncBuilder<List<T>, TResult> fluentLinq, int qt)
         {
             return fluentLinq.Condition(x => x.Count() == qt);
         }
@@ -33,7 +33,7 @@ namespace Linq.Fluent.Funcs.Conditions
         {
             return fluentLinq.Condition(x => x.Count() < qt);
         }
-        public static TResult HaveLessThen<T, TResult>(this ILinqFluentFuncBuilder<IList<T>, TResult> fluentLinq, int qt)
+        public static TResult HaveLessThen<T, TResult>(this ILinqFluentFuncBuilder<List<T>, TResult> fluentLinq, int qt)
         {
             return fluentLinq.Condition(x => x.Count() < qt);
         }
@@ -47,7 +47,7 @@ namespace Linq.Fluent.Funcs.Conditions
         {
             return fluentLinq.Condition(x => x.Count() > qt);
         }
-        public static TResult HaveMoreThen<T, TResult>(this ILinqFluentFuncBuilder<IList<T>, TResult> fluentLinq, int qt)
+        public static TResult HaveMoreThen<T, TResult>(this ILinqFluentFuncBuilder<List<T>, TResult> fluentLinq, int qt)
         {
             return fluentLinq.Condition(x => x.Count() > qt);
         }
@@ -74,6 +74,14 @@ namespace Linq.Fluent.Funcs.Conditions
         public static TResult In<TResult>(this ILinqFluentFuncBuilder<DateTime?, TResult> fluentLinq, params DateTime?[] list)
         {
             return fluentLinq.Condition(x => list.Contains(x));
+        }
+        public static TResult In<TResult>(this ILinqFluentFuncBuilder<int?, TResult> fluentLinq, params int[] list)
+        {
+            return fluentLinq.Condition(x => x != null && list.Contains(x.Value));
+        }
+        public static TResult In<TResult>(this ILinqFluentFuncBuilder<long?, TResult> fluentLinq, params long[] list)
+        {
+            return fluentLinq.Condition(x => x != null && list.Contains(x.Value));
         }
         #endregion In
         #region IsBetween
@@ -185,7 +193,7 @@ namespace Linq.Fluent.Funcs.Conditions
         {
             return fluentLinq.Condition(x => x == null || x.Any());
         }
-        public static TResult IsNullOrEmpty<T, TResult>(this ILinqFluentFuncBuilder<IList<T>, TResult> fluentLinq)
+        public static TResult IsNullOrEmpty<T, TResult>(this ILinqFluentFuncBuilder<List<T>, TResult> fluentLinq)
         {
             return fluentLinq.Condition(x => x == null || x.Any());
         }
@@ -231,15 +239,13 @@ namespace Linq.Fluent.Funcs.Conditions
         }
         public static TResult Like<T, TResult, TValue>(this ILinqFluentFuncBuilder<T, TResult> fluentLinq, TValue value)
             where T : struct
-            where TValue : struct
         {
             return fluentLinq.Condition(x => x.ToString().Contains(value.ToString()));
         }
         public static TResult Like<T, TResult, TValue>(this ILinqFluentFuncBuilder<Nullable<T>, TResult> fluentLinq, TValue value)
            where T : struct
-           where TValue : struct
         {
-            return fluentLinq.Condition(x => x.Value.ToString().Contains(value.ToString()));
+            return fluentLinq.Condition(x => x != null && x.Value.ToString().Contains(value.ToString()));
         }
         #endregion Like
         public static TResult IsNotNull<T, TResult>(this ILinqFluentFuncBuilder<T, TResult> expression)
@@ -255,6 +261,14 @@ namespace Linq.Fluent.Funcs.Conditions
             return fluentLinq.Condition(x => x == true);
         }
         public static TResult IsFalse<TResult>(this ILinqFluentFuncBuilder<bool?, TResult> fluentLinq)
+        {
+            return fluentLinq.Condition(x => x == false);
+        }
+        public static TResult IsTrue<TResult>(this ILinqFluentFuncBuilder<bool, TResult> fluentLinq)
+        {
+            return fluentLinq.Condition(x => x == true);
+        }
+        public static TResult IsFalse<TResult>(this ILinqFluentFuncBuilder<bool, TResult> fluentLinq)
         {
             return fluentLinq.Condition(x => x == false);
         }
