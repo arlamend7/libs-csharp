@@ -9,7 +9,7 @@ on:
 jobs:
   pack-push:
     env:
-      CAMINHO_PROJETO: ./Linq.Fluent.Expressions/Linq.Fluent.Expressions.csproj
+      CAMINHO_PROJETO: ./Linq.Fluent/Linq.Fluent.Expressions/Linq.Fluent.Expressions.csproj
 
     runs-on: ubuntu-latest
 
