@@ -21,8 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Linq.Fluent.Expressions\Linq.Fluent.Expressions.csproj" />
     <ProjectReference Include="..\Linq.Fluent.Funcs\Linq.Fluent.Funcs.csproj" />
-    <ProjectReference Include="..\Linq.Fluent\Linq.Fluent.Expressions.csproj" />
   </ItemGroup>
 
 </Project>

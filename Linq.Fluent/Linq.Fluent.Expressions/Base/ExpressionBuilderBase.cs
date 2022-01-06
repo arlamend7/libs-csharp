@@ -20,7 +20,7 @@ namespace Linq.Fluent.Expressions.Base
 
         protected Expression<Func<T1, bool>> Concat(Expression<Func<T2, bool>> SecondExpression)
         {
-            MemberExpression? memberExpression = FirstExpression.Body as MemberExpression;
+            MemberExpression memberExpression = FirstExpression.Body as MemberExpression;
 
             if (memberExpression == null)
             {
