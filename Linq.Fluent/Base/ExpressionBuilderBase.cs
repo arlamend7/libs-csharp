@@ -24,13 +24,15 @@ namespace Linq.Fluent.Expressions.Base
 
             if (memberExpression == null)
             {
-                return SecondExpression as Expression<Func<T1, bool>>;
+                return Expression.Lambda<Func<T1, bool>>(SecondExpression.Body, SecondExpression.Parameters);
             }
 
             Expression<Func<T1, bool>> expression = Expression.Lambda<Func<T1, bool>>(SecondExpression.Body, FirstExpression.Parameters);
             ExpressionConcater rebinder = new ExpressionConcater(SecondExpression.Parameters[0], memberExpression);
 
-            return rebinder.Visit(expression) as Expression<Func<T1, bool>>;
+            var customExpression = rebinder.Visit(expression.Body);
+
+            return Expression.Lambda<Func<T1, bool>>(customExpression, expression.Parameters);
         }
 
         protected ExpressionBuilderBase<T1,T2> Negate()

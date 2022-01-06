@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32002.185
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linq.Fluent.Expressions", "Linq.Fluent\Linq.Fluent.Expressions.csproj", "{3BE0456D-DC70-4BC6-A188-CAE4043C9813}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq.Fluent.Expressions", "Linq.Fluent\Linq.Fluent.Expressions.csproj", "{3BE0456D-DC70-4BC6-A188-CAE4043C9813}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linq.Fluent.Tests", "Linq.Fluent.Tests\Linq.Fluent.Tests.csproj", "{2785E0EE-F2D6-4C66-9CEA-574993DE4670}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq.Fluent.Tests", "Linq.Fluent.Tests\Linq.Fluent.Tests.csproj", "{2785E0EE-F2D6-4C66-9CEA-574993DE4670}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Extensions", "System.Extensions\System.Extensions.csproj", "{D6D4BEEE-26F9-4C7A-B942-ABC7753284F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Extensions", "System.Extensions\System.Extensions.csproj", "{D6D4BEEE-26F9-4C7A-B942-ABC7753284F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linq.Fluent.Funcs", "Linq.Fluent.Funcs\Linq.Fluent.Funcs.csproj", "{8A7E2459-E622-47F9-B567-CC71D1ED1F44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq.Fluent.Funcs", "Linq.Fluent.Funcs\Linq.Fluent.Funcs.csproj", "{8A7E2459-E622-47F9-B567-CC71D1ED1F44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{81CB3659-AE65-4F39-A3A2-39C0722207D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +38,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2785E0EE-F2D6-4C66-9CEA-574993DE4670} = {81CB3659-AE65-4F39-A3A2-39C0722207D3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11E9DA4D-2EE1-4775-B2EF-4CF24A79317E}

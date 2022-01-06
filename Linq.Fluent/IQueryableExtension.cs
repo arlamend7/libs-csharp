@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Linq.Fluent.Expressions.Starters
+namespace Linq.Fluent.Expressions
 {
     public static class IQueryableExtension
     {

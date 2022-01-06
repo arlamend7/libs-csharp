@@ -3,7 +3,7 @@ using Linq.Fluent.Funcs.FuncBuilders.Interfaces;
 using System;
 using System.Collections.Generic;
 
-namespace Linq.Fluent.Funcs.Starters
+namespace Linq.Fluent.Funcs
 {
     public static class IQueryableExtension
     {

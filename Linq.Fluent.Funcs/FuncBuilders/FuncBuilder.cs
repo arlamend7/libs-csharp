@@ -22,18 +22,17 @@ namespace Linq.Fluent.Funcs.FuncBuilders
 
         public IEnumerable<T1> IsOneOfConditions(Func<T2, bool> secondExpression, params Func<T2, bool>[] expressions)
         {
-            Func<T1, bool> expressionResult = Concat(secondExpression);
-            foreach (Func<T2, bool> expression in expressions)
-            {
-                expressionResult = x => expressionResult.Invoke(x) || Concat(expression).Invoke(x);
-            }
+            List<Func<T2, bool>> expressionsList = expressions.ToList();
+            expressionsList.Add(secondExpression);
+            IEnumerable<Func<T1, bool>> expressionsResultList = expressionsList.Select(func => Concat(func));
 
-            return ReturnValue(expressionResult);
+            return ReturnValue(x => expressionsResultList.Any(func => func.Invoke(x)));
         }
         private IEnumerable<T1> ReturnValue(Func<T1, bool> expressionResult)
         {
             if (Negation)
             {
+                Negation = false;
                 return Query.Where(x => !expressionResult.Invoke(x));
             }
             return Query.Where(expressionResult);

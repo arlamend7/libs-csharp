@@ -28,7 +28,7 @@ namespace Linq.Fluent.Expressions.IExpressionBuilder
             foreach (Expression<Func<T2, bool>> expression in expressions)
             {
                 binaryExpression = Expression.OrElse(expressionResult.Body, Concat(expression).Body);
-                expressionResult = Expression.Lambda<Func<T1, bool>>(binaryExpression, expressionResult.Parameters);
+                expressionResult = Expression.Lambda<Func<T1, bool>>(binaryExpression, expressionResult.Parameters[0]);
             }
 
             return ReturnValue(expressionResult);
@@ -37,7 +37,8 @@ namespace Linq.Fluent.Expressions.IExpressionBuilder
         {
             if (Negation)
             {
-                return Query.Where(expressionResult.Negate());
+                Negation = false;
+                return Query.Where(expressionResult.Not());
             }
             return Query.Where(expressionResult);
         }

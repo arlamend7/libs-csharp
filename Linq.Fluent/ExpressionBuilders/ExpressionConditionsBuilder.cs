@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace Linq.Fluent.Expressions.IExpressionBuilder
 {
-    internal class ExpressionConditionsBuilder<T1, T2> : ExpressionBuilderBase<T1, T2>, IExpressionConditionsBuilder<T1, T2>
+    public class ExpressionConditionsBuilder<T1, T2> : ExpressionBuilderBase<T1, T2>, IExpressionConditionsBuilder<T1, T2>
     {
         public ExpressionConditionsBuilder(Expression<Func<T1, T2>> firstExpression, IQueryable<T1> query) : base(firstExpression, query)
         {
@@ -20,9 +20,11 @@ namespace Linq.Fluent.Expressions.IExpressionBuilder
         public IQueryable<T1> Create()
         {
             Expression<Func<T1, bool>> expressionResult = Expressions.First();
+            BinaryExpression binaryExpression;
             foreach (Expression<Func<T1, bool>> expression in Expressions.Skip(1))
             {
-                expressionResult = Expression.Lambda<Func<T1, bool>>(Expression.AndAlso(expressionResult.Body, expression.Body), expressionResult.Parameters[0]);
+                binaryExpression = Expression.AndAlso(expressionResult.Body, expression.Body);
+                expressionResult = Expression.Lambda<Func<T1, bool>>(binaryExpression, expressionResult.Parameters[0]);
             }
 
             return Query.Where(expressionResult);
@@ -37,11 +39,12 @@ namespace Linq.Fluent.Expressions.IExpressionBuilder
         public IExpressionConditionsBuilder<T1, T2> IsOneOfConditions(Expression<Func<T2, bool>> secondExpression, params Expression<Func<T2, bool>>[] expressions)
         {
             Expression<Func<T1, bool>> expressionResult = Concat(secondExpression);
+            BinaryExpression binaryExpression;
             foreach (Expression<Func<T2, bool>> expression in expressions)
             {
-                expressionResult = Expression.Lambda<Func<T1, bool>>(Expression.OrElse(expressionResult.Body, Concat(expression).Body), expressionResult.Parameters[0]);
+                binaryExpression = Expression.OrElse(expressionResult.Body, Concat(expression).Body);
+                expressionResult = Expression.Lambda<Func<T1, bool>>(binaryExpression, expressionResult.Parameters[0]);
             }
-
 
             Add(expressionResult);
             return this;
@@ -50,7 +53,8 @@ namespace Linq.Fluent.Expressions.IExpressionBuilder
         {
             if (Negation)
             {
-                Expressions.Add(expression.Negate());
+                Negation = false;
+                Expressions.Add(expression.Not());
             }
             Expressions.Add(expression);
         }

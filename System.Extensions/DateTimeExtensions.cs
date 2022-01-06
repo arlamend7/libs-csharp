@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Linq.Fluent.Entidades
+namespace System.Extensions
 {
     public static class DateTimeExtensions
     {
