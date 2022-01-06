@@ -2,7 +2,6 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<PackageProjectUrl></PackageProjectUrl>
 		<Version>1.0.0-beta</Version>
 		<PackageIcon>devcom.png</PackageIcon>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
