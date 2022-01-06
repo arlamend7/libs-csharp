@@ -1,4 +1,6 @@
-﻿namespace System.Extensions.Attributes
+﻿using System;
+
+namespace Libs.System.Extensions.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class QueryNameAttribute : Attribute

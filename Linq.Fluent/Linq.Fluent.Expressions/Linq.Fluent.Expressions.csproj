@@ -21,7 +21,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\System.Extensions\Libs.System.Extensions.csproj" />
+	  <ProjectReference Include="..\..\Libs.System.Extensions\Libs.System.Extensions.csproj" />
 	</ItemGroup>
 
 </Project>
