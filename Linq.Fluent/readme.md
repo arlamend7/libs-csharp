@@ -1,0 +1,1 @@
+This lib was create to help code`s reads.
