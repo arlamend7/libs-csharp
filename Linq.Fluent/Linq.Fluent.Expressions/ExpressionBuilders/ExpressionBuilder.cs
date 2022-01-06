@@ -1,7 +1,7 @@
 ﻿using Linq.Fluent.Expressions.Base;
 using Linq.Fluent.Expressions.IExpressionBuilder.Interfaces;
 using System;
-using System.Extensions;
+using Libs.System.Extensions;
 using System.Linq;
 using System.Linq.Expressions;
 

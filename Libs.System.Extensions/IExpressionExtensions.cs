@@ -1,6 +1,7 @@
-﻿using System.Linq.Expressions;
+﻿using System;
+using System.Linq.Expressions;
 
-namespace System.Extensions
+namespace Libs.System.Extensions
 {
     public static class IExpressionExtensions
     {

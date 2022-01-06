@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq.Fluent.Expressions", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq.Fluent.Tests", "Linq.Fluent\Linq.Fluent.Tests\Linq.Fluent.Tests.csproj", "{2785E0EE-F2D6-4C66-9CEA-574993DE4670}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Extensions", "System.Extensions\System.Extensions.csproj", "{D6D4BEEE-26F9-4C7A-B942-ABC7753284F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Libs.System.Extensions", "Libs.System.Extensions\Libs.System.Extensions.csproj", "{D6D4BEEE-26F9-4C7A-B942-ABC7753284F2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq.Fluent.Funcs", "Linq.Fluent\Linq.Fluent.Funcs\Linq.Fluent.Funcs.csproj", "{8A7E2459-E622-47F9-B567-CC71D1ED1F44}"
 EndProject

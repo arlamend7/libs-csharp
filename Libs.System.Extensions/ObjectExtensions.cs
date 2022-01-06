@@ -1,7 +1,7 @@
-﻿using System.Extensions.Attributes;
+﻿using Libs.System.Extensions.Attributes;
 using System.Reflection;
 
-namespace System.Extensions
+namespace Libs.System.Extensions
 {
     public static class ObjectExtensions
     {
