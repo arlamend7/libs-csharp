@@ -1,4 +1,4 @@
-name: Pack + Push no NuGet
+name: Linq.Fluent.Funcs (NuGet)
 
 on:
   push:
