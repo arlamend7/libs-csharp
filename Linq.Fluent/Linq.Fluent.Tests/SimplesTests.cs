@@ -73,6 +73,7 @@ namespace Linq.Fluent.Tests
                 listComplexValue.AsQueryable()
                                 .WhereParam(x => x.Boolean).IsTrue().Should().HaveCount(0);
             }
+
             [Fact]
             public void IsFalse()
             {
@@ -80,6 +81,7 @@ namespace Linq.Fluent.Tests
                 listComplexValue.AsQueryable()
                                 .WhereParam(x => x.Boolean).IsFalse().Should().HaveCount(1);
             }
+
             [Fact]
             public void Contains()
             {
@@ -88,6 +90,7 @@ namespace Linq.Fluent.Tests
                 listComplexValue.AsQueryable()
                                 .WhereParam(x => x.listInt).Contains(1).Should().HaveCount(1);
             }
+
             [Fact]
             public void Have()
             {
@@ -96,6 +99,7 @@ namespace Linq.Fluent.Tests
                 listComplexValue.AsQueryable()
                                 .WhereParam(x => x.listInt).Have(1).Should().HaveCount(1);
             }
+
             [Fact]
             public void HaveLessThen()
             {
@@ -104,6 +108,7 @@ namespace Linq.Fluent.Tests
                 listComplexValue.AsQueryable()
                                 .WhereParam(x => x.listInt).HaveLessThen(3).Should().HaveCount(2);
             }
+
             [Fact]
             public void HaveMoreThen()
             {
@@ -112,6 +117,7 @@ namespace Linq.Fluent.Tests
                 listComplexValue.AsQueryable()
                                 .WhereParam(x => x.listInt).HaveMoreThen(0).Should().HaveCount(1);
             }
+
             [Fact]
             public void In()
             {
@@ -119,6 +125,7 @@ namespace Linq.Fluent.Tests
                 listComplexValue.AsQueryable()
                                 .WhereParam(x => x.Int).In(1,2,3).Should().HaveCount(1);
             }
+
             [Fact]
             public void IsBetween()
             {
@@ -126,6 +133,7 @@ namespace Linq.Fluent.Tests
                 listComplexValue.AsQueryable()
                                 .WhereParam(x => x.Int).IsBetween(0, 2).Should().HaveCount(1);
             }
+
             [Fact]
             public void IsBiggerThen()
             {
@@ -133,6 +141,7 @@ namespace Linq.Fluent.Tests
                 listComplexValue.AsQueryable()
                                 .WhereParam(x => x.Int).IsBiggerThen(0).Should().HaveCount(1);
             }
+
             [Fact]
             public void IsSmallerThen()
             {
@@ -140,6 +149,7 @@ namespace Linq.Fluent.Tests
                 listComplexValue.AsQueryable()
                                 .WhereParam(x => x.Int).IsSmallerThen(0).Should().HaveCount(0);
             }
+
             [Fact]
             public void IsEqual()
             {
@@ -147,6 +157,7 @@ namespace Linq.Fluent.Tests
                 listComplexValue.AsQueryable()
                                 .WhereParam(x => x.Int).IsEqual(0).Should().HaveCount(0);
             }
+
             [Fact]
             public void Like()
             {
@@ -154,6 +165,7 @@ namespace Linq.Fluent.Tests
                 listComplexValue.AsQueryable()
                                 .WhereParam(x => x.Int).Like("1").Should().HaveCount(1);
             }
+
             [Fact]
             public void IsNullOrEmpty()
             {
