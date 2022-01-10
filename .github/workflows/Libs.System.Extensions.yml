@@ -9,7 +9,7 @@ on:
 jobs:
   pack-push:
     env:
-      CAMINHO_PROJETO: ./Libs.System.Extensions/Libs.System.Extensions.csproj
+      CAMINHO_PROJETO: ./Libs.System.Extensions/Libs.System.Extensions/Libs.System.Extensions.csproj
 
     runs-on: ubuntu-latest
 

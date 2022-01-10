@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Version>1.0.0-preview</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\assets\devcom.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\readme.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Libs.System.Extensions\Libs.System.Extensions\Libs.System.Extensions.csproj" />
+	</ItemGroup>
+
+</Project>
