@@ -3,6 +3,9 @@
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
 		<Version>1.0.0</Version>
+		<PackageIcon>devcom.png</PackageIcon>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/arlamend7/libs-csharp</RepositoryUrl>
 	</PropertyGroup>
 
 	<ItemGroup>
