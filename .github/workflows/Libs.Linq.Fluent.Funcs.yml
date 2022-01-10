@@ -9,7 +9,7 @@ on:
 jobs:
   pack-push:
     env:
-      CAMINHO_PROJETO: ./Linq.Fluent/Linq.Fluent.Funcs/Linq.Fluent.Funcs.csproj
+      CAMINHO_PROJETO: ./Libs.Linq.Fluent/Libs.Linq.Fluent.Funcs/Libs.Linq.Fluent.Funcs.csproj
 
     runs-on: ubuntu-latest
 
