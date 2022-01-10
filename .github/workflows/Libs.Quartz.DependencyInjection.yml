@@ -1,4 +1,4 @@
-name: Libs.Fluent.Net.Mail (NuGet)
+name: Libs.Quartz.DependencyInjection (NuGet)
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 jobs:
   pack-push:
     env:
-      CAMINHO_PROJETO: ./Libs.Fluent.Net.Mail/Libs.Fluent.Net.Mail/Libs.Fluent.Net.Mail.csproj
+      CAMINHO_PROJETO: ./Libs.Quartz/Libs.Quartz.DependencyInjection/Libs.Quartz.DependencyInjection.csproj
 
     runs-on: ubuntu-latest
 
