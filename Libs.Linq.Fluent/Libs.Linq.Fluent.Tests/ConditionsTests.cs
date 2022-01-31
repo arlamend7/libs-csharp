@@ -2,7 +2,6 @@
 using Linq.Fluent.Expressions;
 using Linq.Fluent.Expressions.IExpressionBuilder;
 using Linq.Fluent.Funcs;
-using Linq.Fluent.Funcs.Conditions;
 using Linq.Fluent.Funcs.FuncBuilders;
 using Linq.Fluent.Tests.Base;
 using System;

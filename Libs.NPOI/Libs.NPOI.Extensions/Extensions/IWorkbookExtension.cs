@@ -1,4 +1,4 @@
-﻿using Autoglass.Precificacao.DataTransfer.Utils;
+﻿using Libs.NPOI.Extensions.Entities;
 using NPOI.SS.UserModel;
 using System;
 using System.Collections;
@@ -13,29 +13,28 @@ namespace Libs.NPOI.Extensions
             ISheet mainSheet = wookbook.GetSheetAt(sheetNumber);
             IEnumerator rows = mainSheet.GetRowEnumerator();
             IRow row;
-            if (rows.MoveNext())
+
+            while (rows.MoveNext())
             {
-                while (rows.MoveNext())
+                row = (IRow)rows.Current;
+                try
                 {
-                    row = (IRow)rows.Current;
-                    try
-                    {
-                        TSucesso entidade = fucntion.Invoke(row, response);
-                        response.Sucessos.Add(entidade);
-                    }
-                    catch (ExecutationException<TErro> ex)
-                    {
-                        ex.Linha = row.RowNum;
-                        response.Erros.Add(ex);
-                    }
-                    catch (Exception ex)
-                    {
-                        response.Erros.Add(new ExecutationException<TErro>(row.RowNum, ex));
-                    }
+                    TSucesso entidade = fucntion.Invoke(row, response);
+                    response.Sucessos.Add(entidade);
+                }
+                catch (ExecutationException<TErro> ex)
+                {
+                    ex.Linha = row.RowNum;
+                    response.Erros.Add(ex);
+                }
+                catch (Exception ex)
+                {
+                    response.Erros.Add(new ExecutationException<TErro>(row.RowNum, ex));
                 }
             }
             return response;
         }
+
     }
 }
 

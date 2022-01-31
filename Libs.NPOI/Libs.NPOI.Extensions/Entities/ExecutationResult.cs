@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Autoglass.Precificacao.DataTransfer.Utils
+namespace Libs.NPOI.Extensions.Entities
 {
     public class ExecutationResult<TSucesso,TErro>
     {

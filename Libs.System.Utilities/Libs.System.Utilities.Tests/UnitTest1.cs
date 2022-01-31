@@ -21,5 +21,11 @@ namespace Libs.System.Utilities.Tests
 
             teste.Should().HaveCount(2);
         }
+        [Fact]
+        public void GetByText()
+        {
+            Testes enumerador = EnumUtilities.GetByName<Testes>("complete");
+            enumerador.Should().Be(Testes.Complete);
+        }
     }
 }

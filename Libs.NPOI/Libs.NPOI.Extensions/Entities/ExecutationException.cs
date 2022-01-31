@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Autoglass.Precificacao.DataTransfer.Utils
+namespace Libs.NPOI.Extensions.Entities
 {
     public class ExecutationException : Exception
     {

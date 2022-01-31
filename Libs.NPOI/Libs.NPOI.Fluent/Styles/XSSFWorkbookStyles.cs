@@ -1,5 +1,4 @@
-﻿using Libs.System.Extensions;
-using NPOI.SS.UserModel;
+﻿using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 
 namespace Libs.NPOI.Fluent.Styles
