@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace Libs.System.Extensions.Extensions
+namespace Libs.System.Extensions
 {
     public static class DecimalExtensions
     {

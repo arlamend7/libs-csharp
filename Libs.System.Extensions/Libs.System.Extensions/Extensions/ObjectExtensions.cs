@@ -1,5 +1,4 @@
 ﻿using Libs.System.Extensions.Attributes;
-using System;
 using System.Reflection;
 
 namespace Libs.System.Extensions
@@ -17,7 +16,7 @@ namespace Libs.System.Extensions
             foreach (PropertyInfo property in properties)
             {
                 if (queryString != "?") queryString += "&";
-                queryString += $"{property.GetCustomAttribute<QueryNameAttribute>()?.Name ?? property.Name}={property.GetValue(obj)}";
+                    queryString += $"{property.GetCustomAttribute<QueryNameAttribute>()?.Name ?? property.Name}={property.GetValue(obj)}";
             }
             return queryString;
         }

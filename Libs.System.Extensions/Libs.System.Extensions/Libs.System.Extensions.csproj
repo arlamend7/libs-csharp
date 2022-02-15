@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
-		<Version>1.0.4</Version>
+		<Version>1.0.3</Version>
 		<PackageIcon>devcom.png</PackageIcon>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/arlamend7/libs-csharp</RepositoryUrl>

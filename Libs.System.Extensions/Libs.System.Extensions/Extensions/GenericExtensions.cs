@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace Libs.System.Extensions.Extensions
+namespace Libs.System.Extensions
 {
     public static class GenericExtensions
     {
@@ -22,6 +22,10 @@ namespace Libs.System.Extensions.Extensions
             if (!successfulParse) return false;
             convertedValue = (TResult)args[1];
             return true;
+        }
+        public static TResult MapValue<T,TResult>(this T source, Func<T, TResult> memb)
+        {
+            return memb(source);
         }
     }
 }

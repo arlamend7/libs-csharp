@@ -13,8 +13,8 @@ namespace Libs.System.Extensions.Tests
         [Fact]
         public void Teste()
         {
-           var teste = TesteEnum.Currency.GetCharValue();
-           teste.ToString().Should().Be("C");
+            char teste = TesteEnum.Currency.GetCharValue();
+            teste.ToString().Should().Be("C");
         }
     }
 }
