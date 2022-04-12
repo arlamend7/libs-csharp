@@ -9,6 +9,10 @@ namespace Libs.System.Utilities.Enums.Classes
         public int Value { get; }
         public string Description { get;}
         public Enum Enumeration { get; }
+        public EnumValue()
+        {
+
+        }
         public EnumValue(Enum enumeration)
         {
             Name = enumeration.ToString();
